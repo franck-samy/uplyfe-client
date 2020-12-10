@@ -10,6 +10,11 @@ import NormalRoute from "./routing-components/NormalRoute";
 import ProtectedRoute from "./routing-components/ProtectedRoute";
 import { getLoggedIn, logout } from "./services/auth";
 import * as PATHS from "./utils/paths";
+import ProfilePage from "./pages/ProfilePage";
+import FollowersPage from "./pages/FollowersPage";
+import SignupPage from "./pages/Signup";
+import LoginPage from "./pages/LogIn";
+import FeedPage from "./pages/FeedPage";
 
 class App extends React.Component {
   state = {
@@ -81,28 +86,40 @@ class App extends React.Component {
 
     return (
       <div className="App">
-        <Navbar handleLogout={this.handleLogout} user={this.state.user} />
         <Switch>
           <NormalRoute exact path={PATHS.HOMEPAGE} component={HomePage} />
           <NormalRoute
             exact
             path={PATHS.SIGNUPPAGE}
             authenticate={this.authenticate}
-            component={Signup}
+            component={SignupPage}
           />
           <NormalRoute
             exact
             path={PATHS.LOGINPAGE}
             authenticate={this.authenticate}
-            component={LogIn}
+            component={LoginPage}
           />
           <ProtectedRoute
             exact
-            path={PATHS.PROTECTEDPAGE}
-            component={ProtectedPage}
+            path={PATHS.PROFILEPAGE}
+            component={ProfilePage}
+            user={this.state.user}
+          />
+          <ProtectedRoute
+            exact
+            path={PATHS.FEEDPAGE}
+            component={FeedPage}
+            user={this.state.user}
+          />
+          <ProtectedRoute
+            exact
+            path={PATHS.FOLLOWERSPAGE}
+            component={FollowersPage}
             user={this.state.user}
           />
         </Switch>
+        {/* <Navbar handleLogout={this.handleLogout} user={this.state.user} /> */}
       </div>
     );
   }

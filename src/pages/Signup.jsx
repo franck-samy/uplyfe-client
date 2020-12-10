@@ -1,3 +1,4 @@
+import Axios from "axios";
 import React, { Component } from "react";
 import { signup } from "../services/auth";
 import "./auth.css";
@@ -24,13 +25,16 @@ export default class Signup extends Component {
     };
     signup(credentials).then((res) => {
       // successful signup
+      //  Axios.post("http://localhost:5005/auth/signup", credentials).then((res =>{
+      //    console.log("Success")
+      //  })
       console.log(res);
       if (!res.status) {
         // unsuccessful signup
       }
       localStorage.setItem("accessToken", res.data.accessToken);
       this.props.authenticate(res.data.user);
-      this.props.history.push("/");
+      this.props.history.push("/profile");
     });
   };
 

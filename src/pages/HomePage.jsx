@@ -5,18 +5,9 @@ function HomePage() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1>Welcome Page</h1>
+        <a href="/auth/signup">Get started!</a>
+        <a href="/auth/login">Log In</a>
       </header>
     </div>
   );

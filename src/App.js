@@ -10,6 +10,9 @@ import NormalRoute from "./routing-components/NormalRoute";
 import ProtectedRoute from "./routing-components/ProtectedRoute";
 import { getLoggedIn, logout } from "./services/auth";
 import * as PATHS from "./utils/paths";
+import Header from './components/Header/Header';
+import SignOut from './components/SignOut/SignOut';
+import UpdateProfile from './components/UpdateProfile/UpdateProfile';
 
 class App extends React.Component {
   state = {
@@ -81,9 +84,13 @@ class App extends React.Component {
 
     return (
       <div className="App">
+        <Header />
         <Navbar handleLogout={this.handleLogout} user={this.state.user} />
         <Switch>
-          <NormalRoute exact path={PATHS.HOMEPAGE} component={HomePage} />
+          <NormalRoute
+            exact path={PATHS.HOMEPAGE}
+            component={HomePage} 
+            />
           <NormalRoute
             exact
             path={PATHS.SIGNUPPAGE}
@@ -98,8 +105,14 @@ class App extends React.Component {
           />
           <ProtectedRoute
             exact
-            path={PATHS.PROTECTEDPAGE}
-            component={ProtectedPage}
+            path={PATHS.SIGNOUT}
+            component={SignOut}
+            user={this.state.user}
+          />
+          <ProtectedRoute
+            exact
+            path={PATHS.UPDATEPROFILE}
+            component={UpdateProfile}
             user={this.state.user}
           />
         </Switch>

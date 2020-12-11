@@ -27,6 +27,13 @@ const Navbar = (props) => {
           alt="follower image"
         />
       </Link>
+      <Link to="/update-profile" className="navbar">
+        <img
+          className="navButtons"
+          src="../../../images/user.png"
+          alt=" user image"
+        />
+      </Link>
 
       {/* <div className="nav__authLinks">
         {props.user ? (

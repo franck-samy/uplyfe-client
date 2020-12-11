@@ -14,7 +14,8 @@ import Login from "./pages/LogIn";
 import FeedPage from "./pages/FeedPage";
 import Header from "./components/Header/Header";
 import SignOut from "./components/SignOut/SignOut";
-import UpdateProfile from "./components/UpdateProfile/UpdateProfile";
+import UpdateProfilePage from "./pages/UpdateProfilePage";
+import AddNewItemPage from "./pages/AddNewItemPage";
 
 class App extends React.Component {
   state = {
@@ -105,15 +106,13 @@ class App extends React.Component {
             authenticate={this.authenticate}
             component={Login}
           />
-          
-          
+
           <ProtectedRoute
             exact
             path={PATHS.UPDATEPROFILE}
-            component={UpdateProfile}
+            component={UpdateProfilePage}
             user={this.state.user}
           />
-        
 
           <ProtectedRoute
             exact
@@ -129,7 +128,6 @@ class App extends React.Component {
             user={this.state.user}
           />
 
-
           <ProtectedRoute
             exact
             path={PATHS.FEEDPAGE}
@@ -140,6 +138,12 @@ class App extends React.Component {
             exact
             path={PATHS.FOLLOWERSPAGE}
             component={FollowersPage}
+            user={this.state.user}
+          />
+          <ProtectedRoute
+            exact
+            path={PATHS.ADDNEWITEMPAGE}
+            component={AddNewItemPage}
             user={this.state.user}
           />
         </Switch>

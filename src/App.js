@@ -7,14 +7,17 @@ import NormalRoute from "./routing-components/NormalRoute";
 import ProtectedRoute from "./routing-components/ProtectedRoute";
 import { getLoggedIn, logout } from "./services/auth";
 import * as PATHS from "./utils/paths";
-import Header from './components/Header/Header';
-import SignOut from './components/SignOut/SignOut';
-import UpdateProfile from './components/UpdateProfile/UpdateProfile';
+import Header from "./components/Header/Header";
+import SignOut from "./components/SignOut/SignOut";
+import UpdateProfile from "./components/UpdateProfile/UpdateProfile";
 import ProfilePage from "./pages/ProfilePage";
 import FollowersPage from "./pages/FollowersPage";
 import SignupPage from "./pages/Signup";
 import LoginPage from "./pages/LogIn";
 import FeedPage from "./pages/FeedPage";
+import Header from "./components/Header/Header";
+import SignOut from "./components/SignOut/SignOut";
+import UpdateProfile from "./components/UpdateProfile/UpdateProfile";
 
 class App extends React.Component {
   state = {
@@ -85,12 +88,13 @@ class App extends React.Component {
     }
 
     return (
+      // <div className="App">
+      // <div className="App" id="outer-container">
+      /* <Header pageWrapId={'page-wrap'} outerContainerId={'outer-container'} />
+        <Navbar handleLogout={this.handleLogout} user={this.state.user} /> */
       <div className="App" id="outer-container">
         <Switch>
-          <NormalRoute
-            exact path={PATHS.HOMEPAGE}
-            component={HomePage} 
-            />
+          <NormalRoute exact path={PATHS.HOMEPAGE} component={HomePage} />
           <NormalRoute
             exact
             path={PATHS.SIGNUPPAGE}
@@ -127,10 +131,11 @@ class App extends React.Component {
             exact
             path={PATHS.FOLLOWERSPAGE}
             component={FollowersPage}
+            path={PATHS.SIGNOUT}
+            component={SignOut}
             user={this.state.user}
           />
         </Switch>
-        {/* <Navbar handleLogout={this.handleLogout} user={this.state.user} /> */}
       </div>
     );
   }

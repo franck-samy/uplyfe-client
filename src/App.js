@@ -1,11 +1,8 @@
 import React from "react";
 import { Switch } from "react-router-dom";
 import LoadingComponent from "./components/Loading";
-import Navbar from "./components/Navbar/Navbar";
 import HomePage from "./pages/HomePage";
-import LogIn from "./pages/LogIn";
 import ProtectedPage from "./pages/ProtectedPage";
-import Signup from "./pages/Signup";
 import NormalRoute from "./routing-components/NormalRoute";
 import ProtectedRoute from "./routing-components/ProtectedRoute";
 import { getLoggedIn, logout } from "./services/auth";
@@ -13,6 +10,11 @@ import * as PATHS from "./utils/paths";
 import Header from './components/Header/Header';
 import SignOut from './components/SignOut/SignOut';
 import UpdateProfile from './components/UpdateProfile/UpdateProfile';
+import ProfilePage from "./pages/ProfilePage";
+import FollowersPage from "./pages/FollowersPage";
+import SignupPage from "./pages/Signup";
+import LoginPage from "./pages/LogIn";
+import FeedPage from "./pages/FeedPage";
 
 class App extends React.Component {
   state = {
@@ -84,8 +86,6 @@ class App extends React.Component {
 
     return (
       <div className="App" id="outer-container">
-        <Header pageWrapId={'page-wrap'} outerContainerId={'outer-container'} />
-        <Navbar handleLogout={this.handleLogout} user={this.state.user} />
         <Switch>
           <NormalRoute
             exact path={PATHS.HOMEPAGE}
@@ -95,13 +95,13 @@ class App extends React.Component {
             exact
             path={PATHS.SIGNUPPAGE}
             authenticate={this.authenticate}
-            component={Signup}
+            component={SignupPage}
           />
           <NormalRoute
             exact
             path={PATHS.LOGINPAGE}
             authenticate={this.authenticate}
-            component={LogIn}
+            component={LoginPage}
           />
           <NormalRoute
             exact
@@ -113,9 +113,24 @@ class App extends React.Component {
             exact
             path={PATHS.SIGNOUT}
             component={SignOut}
+            path={PATHS.PROFILEPAGE}
+            component={ProfilePage}
+            user={this.state.user}
+          />
+          <ProtectedRoute
+            exact
+            path={PATHS.FEEDPAGE}
+            component={FeedPage}
+            user={this.state.user}
+          />
+          <ProtectedRoute
+            exact
+            path={PATHS.FOLLOWERSPAGE}
+            component={FollowersPage}
             user={this.state.user}
           />
         </Switch>
+        {/* <Navbar handleLogout={this.handleLogout} user={this.state.user} /> */}
       </div>
     );
   }

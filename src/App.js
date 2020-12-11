@@ -1,11 +1,8 @@
 import React from "react";
 import { Switch } from "react-router-dom";
 import LoadingComponent from "./components/Loading";
-import Navbar from "./components/Navbar/Navbar";
 import HomePage from "./pages/HomePage";
-import LogIn from "./pages/LogIn";
 import ProtectedPage from "./pages/ProtectedPage";
-import Signup from "./pages/Signup";
 import NormalRoute from "./routing-components/NormalRoute";
 import ProtectedRoute from "./routing-components/ProtectedRoute";
 import { getLoggedIn, logout } from "./services/auth";

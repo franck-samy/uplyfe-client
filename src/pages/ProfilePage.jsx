@@ -1,11 +1,11 @@
 import Navbar from "../components/Navbar/Navbar";
 import Profile from "../components/Profile/Profile";
 
-function ProfilePage() {
+function ProfilePage(props) {
   return (
     <div className="App">
       <header className="App-header">
-        <Profile />
+        <Profile component={Profile} />
         <hr />
         <Navbar />
       </header>

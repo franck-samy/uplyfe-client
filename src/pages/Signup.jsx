@@ -24,10 +24,6 @@ export default class Signup extends Component {
       password: this.state.password,
     };
     signup(credentials).then((res) => {
-      // successful signup
-      //  Axios.post("http://localhost:5005/auth/signup", credentials).then((res =>{
-      //    console.log("Success")
-      //  })
       console.log(res);
       if (!res.status) {
         // unsuccessful signup

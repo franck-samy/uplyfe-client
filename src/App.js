@@ -7,13 +7,10 @@ import NormalRoute from "./routing-components/NormalRoute";
 import ProtectedRoute from "./routing-components/ProtectedRoute";
 import { getLoggedIn, logout } from "./services/auth";
 import * as PATHS from "./utils/paths";
-import Header from "./components/Header/Header";
-import SignOut from "./components/SignOut/SignOut";
-import UpdateProfile from "./components/UpdateProfile/UpdateProfile";
 import ProfilePage from "./pages/ProfilePage";
 import FollowersPage from "./pages/FollowersPage";
-import SignupPage from "./pages/Signup";
-import LoginPage from "./pages/LogIn";
+import Signup from "./pages/Signup";
+import Login from "./pages/LogIn";
 import FeedPage from "./pages/FeedPage";
 import Header from "./components/Header/Header";
 import SignOut from "./components/SignOut/SignOut";
@@ -95,32 +92,44 @@ class App extends React.Component {
       <div className="App" id="outer-container">
         <Switch>
           <NormalRoute exact path={PATHS.HOMEPAGE} component={HomePage} />
+
           <NormalRoute
             exact
             path={PATHS.SIGNUPPAGE}
             authenticate={this.authenticate}
-            component={SignupPage}
+            component={Signup}
           />
           <NormalRoute
             exact
             path={PATHS.LOGINPAGE}
             authenticate={this.authenticate}
-            component={LoginPage}
+            component={Login}
           />
-          <NormalRoute
+          
+          
+          <ProtectedRoute
             exact
             path={PATHS.UPDATEPROFILE}
             component={UpdateProfile}
             user={this.state.user}
           />
-          <NormalRoute
+        
+
+          <ProtectedRoute
             exact
             path={PATHS.SIGNOUT}
             component={SignOut}
+            user={this.state.user}
+          />
+
+          <ProtectedRoute
+            exact
             path={PATHS.PROFILEPAGE}
             component={ProfilePage}
             user={this.state.user}
           />
+
+
           <ProtectedRoute
             exact
             path={PATHS.FEEDPAGE}
@@ -131,8 +140,6 @@ class App extends React.Component {
             exact
             path={PATHS.FOLLOWERSPAGE}
             component={FollowersPage}
-            path={PATHS.SIGNOUT}
-            component={SignOut}
             user={this.state.user}
           />
         </Switch>

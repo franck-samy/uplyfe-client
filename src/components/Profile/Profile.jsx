@@ -8,7 +8,7 @@ const Profile = (props) => {
         src="../../images/defaut-pic.jpg"
         alt="pic"
       />
-      <h3 className="username">{props.user.username}</h3>
+      <h3 className="username">Username</h3>
       <h5>inspirations</h5>
       <h5>inspired</h5>
       <p className="bio" style={{ fontSize: 10 }}>

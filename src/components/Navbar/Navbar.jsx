@@ -5,10 +5,6 @@ import "./Navbar.css";
 
 const Navbar = (props) => {
   return (
-<<<<<<< HEAD
-    <nav>
-      <Link to="/" className="nav__projectName">UpLyfe
-=======
     <nav className="navbar">
       <Link to="/profile" className="navbar">
         <img
@@ -30,7 +26,6 @@ const Navbar = (props) => {
           src="../../../images/followers.png"
           alt="follower image"
         />
->>>>>>> dev
       </Link>
 
       {/* <div className="nav__authLinks">

@@ -83,8 +83,8 @@ class App extends React.Component {
     }
 
     return (
-      <div className="App">
-        <Header />
+      <div className="App" id="outer-container">
+        <Header pageWrapId={'page-wrap'} outerContainerId={'outer-container'} />
         <Navbar handleLogout={this.handleLogout} user={this.state.user} />
         <Switch>
           <NormalRoute
@@ -103,16 +103,16 @@ class App extends React.Component {
             authenticate={this.authenticate}
             component={LogIn}
           />
-          <ProtectedRoute
-            exact
-            path={PATHS.SIGNOUT}
-            component={SignOut}
-            user={this.state.user}
-          />
-          <ProtectedRoute
+          <NormalRoute
             exact
             path={PATHS.UPDATEPROFILE}
             component={UpdateProfile}
+            user={this.state.user}
+          />
+          <NormalRoute
+            exact
+            path={PATHS.SIGNOUT}
+            component={SignOut}
             user={this.state.user}
           />
         </Switch>

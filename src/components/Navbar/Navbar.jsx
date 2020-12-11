@@ -5,8 +5,7 @@ import './Navbar.css';
 const Navbar = props => {
   return (
     <nav>
-      <Link to="/" className="nav__projectName">
-        Project Name
+      <Link to="/" className="nav__projectName">UpLyfe
       </Link>
 
       <div className="nav__authLinks">

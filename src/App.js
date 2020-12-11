@@ -12,6 +12,9 @@ import FollowersPage from "./pages/FollowersPage";
 import SignupPage from "./pages/Signup";
 import LoginPage from "./pages/LogIn";
 import FeedPage from "./pages/FeedPage";
+import Header from "./components/Header/Header";
+import SignOut from "./components/SignOut/SignOut";
+import UpdateProfile from "./components/UpdateProfile/UpdateProfile";
 
 class App extends React.Component {
   state = {
@@ -82,7 +85,10 @@ class App extends React.Component {
     }
 
     return (
-      <div className="App">
+      // <div className="App">
+      <div className="App" id="outer-container">
+        {/* <Header pageWrapId={'page-wrap'} outerContainerId={'outer-container'} />
+        <Navbar handleLogout={this.handleLogout} user={this.state.user} /> */}
         <Switch>
           <NormalRoute exact path={PATHS.HOMEPAGE} component={HomePage} />
           <NormalRoute
@@ -97,7 +103,13 @@ class App extends React.Component {
             authenticate={this.authenticate}
             component={LoginPage}
           />
-          <ProtectedRoute
+          <NormalRoute
+            exact
+            path={PATHS.UPDATEPROFILE}
+            component={UpdateProfile}
+            user={this.state.user}
+          />
+          <NormalRoute
             exact
             path={PATHS.PROFILEPAGE}
             component={ProfilePage}
@@ -113,6 +125,8 @@ class App extends React.Component {
             exact
             path={PATHS.FOLLOWERSPAGE}
             component={FollowersPage}
+            path={PATHS.SIGNOUT}
+            component={SignOut}
             user={this.state.user}
           />
         </Switch>

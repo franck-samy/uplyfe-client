@@ -13,6 +13,7 @@ nav {
 .nav__projectName {
   color: #e4f9ff;
   text-decoration: none;
+  margin-left: 60px;
 }
 
 .authLink {

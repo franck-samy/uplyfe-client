@@ -13,6 +13,7 @@ class SingleItem extends Component {
   };
 
   render() {
+    console.log("apa")
     return (
       <div className="singleItem">
         <h1>Category</h1>
@@ -30,9 +31,8 @@ class SingleItem extends Component {
         <p>
           <strong>Comment:</strong>
         </p>
-
         {/* public
-                pending */}
+         pending */}
       </div>
     );
   }

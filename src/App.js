@@ -95,6 +95,7 @@ class App extends React.Component {
       /* <Header pageWrapId={'page-wrap'} outerContainerId={'outer-container'} />
         <Navbar handleLogout={this.handleLogout} user={this.state.user} /> */
       <div className="App" id="outer-container">
+        
         <Switch>
           <NormalRoute exact path={PATHS.HOMEPAGE} component={HomePage} />
 
@@ -133,16 +134,13 @@ class App extends React.Component {
             item={this.state.item}
           />
 
-          {/* <ProtectedRoute
+          <ProtectedRoute
             exact
-            path="/:id"
-            render={(routeProps) => (
-              <SingleItem {...routeProps} items={items} />
-            )}
+            path={PATHS.SINGLEITEMPAGE}
             component={SingleItemPage}
             user={this.state.user}
             item={this.state.item}
-          /> */}
+          />
 
           <ProtectedRoute
             exact
@@ -150,18 +148,21 @@ class App extends React.Component {
             component={FeedPage}
             user={this.state.user}
           />
+
           <ProtectedRoute
             exact
             path={PATHS.FOLLOWERSPAGE}
             component={FollowersPage}
             user={this.state.user}
           />
+
           <ProtectedRoute
             exact
             path={PATHS.ADDNEWITEMPAGE}
             component={AddNewItemPage}
             user={this.state.user}
           />
+
         </Switch>
       </div>
     );

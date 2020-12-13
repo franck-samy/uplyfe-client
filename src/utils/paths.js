@@ -8,4 +8,4 @@ export const FOLLOWERSPAGE = "/followers";
 export const SIGNOUT = "/sign-out";
 export const UPDATEPROFILE = "/update-profile";
 export const ADDNEWITEMPAGE = "/add-new-item";
-// export const SINGLEITEMPAGE = "/item/:id";
+export const SINGLEITEMPAGE = "/item/:id";

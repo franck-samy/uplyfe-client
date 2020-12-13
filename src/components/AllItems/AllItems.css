@@ -1,0 +1,12 @@
+* {
+  padding: 0px;
+  margin: 0px;
+}
+
+li {
+  color: black;
+  list-style-type: none;
+  border: solid 1px black;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}

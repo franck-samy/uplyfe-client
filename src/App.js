@@ -16,10 +16,13 @@ import Header from "./components/Header/Header";
 import SignOut from "./components/SignOut/SignOut";
 import UpdateProfilePage from "./pages/UpdateProfilePage";
 import AddNewItemPage from "./pages/AddNewItemPage";
+import SingleItemPage from "./pages/SingleItemPage";
+import SingleItem from "./components/SingleItem/SingleItem";
 
 class App extends React.Component {
   state = {
     user: null,
+    item: [],
     isLoading: true,
   };
 
@@ -40,6 +43,7 @@ class App extends React.Component {
       }
       this.setState({
         user: res.data.user,
+        item: res.data.item,
         isLoading: false,
       });
     });
@@ -126,7 +130,19 @@ class App extends React.Component {
             path={PATHS.PROFILEPAGE}
             component={ProfilePage}
             user={this.state.user}
+            item={this.state.item}
           />
+
+          {/* <ProtectedRoute
+            exact
+            path="/:id"
+            render={(routeProps) => (
+              <SingleItem {...routeProps} items={items} />
+            )}
+            component={SingleItemPage}
+            user={this.state.user}
+            item={this.state.item}
+          /> */}
 
           <ProtectedRoute
             exact

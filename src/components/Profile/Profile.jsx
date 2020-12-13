@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import AllItems from "../AllItems/AllItems";
 
 class Profile extends React.Component {
   state = {

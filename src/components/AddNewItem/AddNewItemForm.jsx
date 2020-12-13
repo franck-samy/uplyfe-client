@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import axios from "axios";
+import { addNewItem } from "../../services/items";
 
 class AddNewItemForm extends Component {
   state = {
@@ -25,6 +27,12 @@ class AddNewItemForm extends Component {
       // pending: "",
       // like: "",
     };
+    addNewItem(item).then((response) => {
+      console.log("response", response);
+      if (!response.status) {
+        return;
+      }
+    });
   };
 
   handleChange = (event) => {

@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import axios from "axios";
 import { addNewItem } from "../../services/items";
 
-
 class AddNewItemForm extends Component {
   state = {
     owner: this.props.user._id,
@@ -13,7 +12,7 @@ class AddNewItemForm extends Component {
     description: "",
     // pending: "",
     // like: "",
-    url: '/profile'
+    url: "/profile",
   };
 
   handleSubmit = (event) => {
@@ -35,8 +34,10 @@ class AddNewItemForm extends Component {
       if (!response.status) {
         return;
       }
-      } 
-    };
+      setTimeout(() => {
+        this.props.history.push("/profile");
+      }, 100);
+    });
   };
 
   handleChange = (event) => {
@@ -81,8 +82,7 @@ class AddNewItemForm extends Component {
             value={this.state.description}
             onChange={this.handleChange}
           />
-          <button type="submit"><a href="/profile">Add to my list</a></button>
-         
+          <button type="submit">Add to my list</button>
         </form>
       </div>
     );

@@ -4,7 +4,7 @@ import AddNewItemForm from "../components/AddNewItem/AddNewItemForm";
 const AddNewItemPage = (props) => {
   return (
     <div>
-      <AddNewItemForm user={props.user} />
+      <AddNewItemForm {...props} />
     </div>
   );
 };

@@ -1,19 +1,19 @@
-import React, { Component } from "react";
-import axios from "axios";
-import { addNewItem } from "../../services/items";
+import React, { Component } from 'react';
+import axios from 'axios';
+import { addNewItem } from '../../services/items';
 import { Redirect } from 'react-router-dom';
 
 class AddNewItemForm extends Component {
   state = {
     owner: this.props.user._id,
-    category: "",
-    title: "",
+    category: '',
+    title: '',
     // image: "",
     // public: "",
-    description: "",
+    description: '',
     // pending: "",
     // like: "",
-    url: '/profile'
+    url: '/profile',
   };
 
   handleSubmit = (event) => {
@@ -30,15 +30,15 @@ class AddNewItemForm extends Component {
       // like: "",
     };
     addNewItem(item).then((response) => {
-      console.log("response", response);
+      console.log('response', response);
       if (!response.status) {
         return;
-      } 
+      }
     });
   };
 
   handleChange = (event) => {
-    console.log(event.target.name, ": ", event.target.value);
+    console.log(event.target.name, ': ', event.target.value);
     this.setState({
       [event.target.name]: event.target.value,
     });
@@ -46,37 +46,38 @@ class AddNewItemForm extends Component {
 
   render() {
     return (
-      <div className="AddNewItemForm">
+      <div className='AddNewItemForm'>
         <form onSubmit={this.handleSubmit}>
-          <label name="title" htmlFor="title">
+          <label name='title' htmlFor='title'>
             Title
           </label>
           <input
-            name="title"
-            type="text"
+            name='title'
+            type='text'
             value={this.state.title}
             onChange={this.handleChange}
           />
-          <label name="category" htmlFor="category">
+          <label name='category' htmlFor='category'>
             Category
           </label>
           <input
-            name="category"
-            type="text"
+            name='category'
+            type='text'
             value={this.state.category}
             onChange={this.handleChange}
           />
-          <label name="description" htmlFor="description">
+          <label name='description' htmlFor='description'>
             Description
           </label>
           <input
-            name="description"
-            type="text"
+            name='description'
+            type='text'
             value={this.state.description}
             onChange={this.handleChange}
           />
-          <button type="submit"><a href="/profile">Add to my list</a></button>
-         
+          <button type='submit'>
+            <a href='/profile'>Add to my list</a>
+          </button>
         </form>
       </div>
     );

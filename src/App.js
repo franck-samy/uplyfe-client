@@ -18,6 +18,8 @@ import UpdateProfilePage from "./pages/UpdateProfilePage";
 import AddNewItemPage from "./pages/AddNewItemPage";
 import SingleItemPage from "./pages/SingleItemPage";
 import SingleItem from "./components/SingleItem/SingleItem";
+import UpdateItemPage from './pages/UpdateItemPage';
+import UpdateItemForm from './components/UpdateItemForm/UpdateItemForm';
 
 class App extends React.Component {
   state = {
@@ -161,6 +163,14 @@ class App extends React.Component {
             path={PATHS.ADDNEWITEMPAGE}
             component={AddNewItemPage}
             user={this.state.user}
+          />
+
+          <ProtectedRoute
+            exact
+            path={PATHS.UPDATEITEMPAGE}
+            component={UpdateItemPage}
+            user={this.state.user}
+            item={this.state.item}
           />
 
         </Switch>

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 
 const Item = (props) => {
   return (
@@ -9,6 +10,7 @@ const Item = (props) => {
       <br />
       <h3>Description: {props.description}</h3>
       {/* <p>Category: {props.category.enum}</p> */}
+      <Link to={`/update-item/${props._id}`}>Edit my item</Link> 
     </div>
   );
 };

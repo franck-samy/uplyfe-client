@@ -1,14 +1,38 @@
-import axios from "axios";
+import axios from 'axios';
 
 const itemService = axios.create({
-  baseURL: "http://localhost:5005/api",
+  baseURL: 'http://localhost:5005/api',
 });
 
 export function addNewItem(item) {
   return itemService
-    .post("/new-item", item, {
+    .post('/new-item', item, {
       headers: {
-        Authorization: localStorage.getItem("accessToken"),
+        Authorization: localStorage.getItem('accessToken'),
+      },
+    })
+    .then((response) => {
+      return {
+        status: true,
+        data: response.data,
+      };
+    })
+    .catch((err) => {
+      console.log('HERE?');
+      console.log(err.response);
+      return {
+        status: false,
+        errorMessage: err.response.data.errorMessage,
+      };
+    });
+}
+
+export function updateItem(id, item) {
+  console.log('SO MANY CONSOLE LOGS, ', item);
+  return itemService
+    .put(`/item/${id}`, item, {
+      headers: {
+        Authorization: localStorage.getItem('accessToken'),
       },
     })
     .then((response) => {
@@ -27,5 +51,18 @@ export function addNewItem(item) {
 }
 
 export function getAllItems() {
-  return itemService.get("/all-items").then((res) => res.data);
+  return itemService.get('/all-items').then((res) => res.data);
+}
+
+export function getSingleItem(id) {
+  return itemService
+    .get(`/item/${id}`)
+    .then((res) => res.data)
+    .catch((err) => {
+      console.log(err.response);
+      return {
+        status: false,
+        errorMessage: err.response.data.errorMessage,
+      };
+    });
 }

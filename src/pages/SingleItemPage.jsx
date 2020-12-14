@@ -9,7 +9,7 @@ export class SingleItemPage extends React.Component {
 
   componentDidMount = () => {
     axios
-      .get(`http://localhost:5005/api/items/${this.props.match.params.id}`)
+      .get(`http://localhost:5005/api/item/${this.props.match.params.id}`)
       .then((res) => {
         this.setState({
           itemDetails: res.data,

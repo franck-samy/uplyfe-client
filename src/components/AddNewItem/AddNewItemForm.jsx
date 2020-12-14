@@ -1,7 +1,11 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { addNewItem } from "../../services/items";
+<<<<<<< HEAD
 import { Redirect } from "react-router-dom";
+=======
+import { Redirect } from 'react-router-dom';
+>>>>>>> 638bc6f009dec76e23d989d013a27923a1f3b9aa
 
 class AddNewItemForm extends Component {
   state = {
@@ -13,6 +17,7 @@ class AddNewItemForm extends Component {
     description: "",
     // pending: "",
     // like: "",
+    url: '/profile'
   };
 
   handleSubmit = (event) => {
@@ -33,8 +38,12 @@ class AddNewItemForm extends Component {
 
       if (!response.status) {
         return;
+<<<<<<< HEAD
       }
       this.props.history.push("/");
+=======
+      } 
+>>>>>>> 638bc6f009dec76e23d989d013a27923a1f3b9aa
     });
   };
 
@@ -80,7 +89,8 @@ class AddNewItemForm extends Component {
             value={this.state.description}
             onChange={this.handleChange}
           />
-          <button type="submit">Add to my list</button>
+          <button type="submit"><a href="/profile">Add to my list</a></button>
+         
         </form>
       </div>
     );

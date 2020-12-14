@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { addNewItem } from '../../services/items';
-import { Redirect } from 'react-router-dom';
 
 class AddNewItemForm extends Component {
   state = {
@@ -31,9 +30,13 @@ class AddNewItemForm extends Component {
     };
     addNewItem(item).then((response) => {
       console.log('response', response);
+
       if (!response.status) {
         return;
       }
+      setTimeout(() => {
+        this.props.history.push('/profile');
+      }, 100);
     });
   };
 
@@ -43,6 +46,10 @@ class AddNewItemForm extends Component {
       [event.target.name]: event.target.value,
     });
   };
+
+  //   onRedirect = () => {
+  //     return <Redirect to="/profile" />;
+  //   };
 
   render() {
     return (
@@ -75,9 +82,7 @@ class AddNewItemForm extends Component {
             value={this.state.description}
             onChange={this.handleChange}
           />
-          <button type='submit'>
-            <a href='/profile'>Add to my list</a>
-          </button>
+          <button type='submit'>Add to my list</button>
         </form>
       </div>
     );

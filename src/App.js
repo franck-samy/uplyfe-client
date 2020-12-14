@@ -18,8 +18,9 @@ import UpdateProfilePage from "./pages/UpdateProfilePage";
 import AddNewItemPage from "./pages/AddNewItemPage";
 import SingleItemPage from "./pages/SingleItemPage";
 import SingleItem from "./components/SingleItem/SingleItem";
-import UpdateItemPage from './pages/UpdateItemPage';
-import UpdateItemForm from './components/UpdateItemForm/UpdateItemForm';
+import UpdateItemPage from "./pages/UpdateItemPage";
+import UpdateItemForm from "./components/UpdateItemForm/UpdateItemForm";
+import DeleteItemPage from "./pages/DeleteItemPage";
 
 class App extends React.Component {
   state = {
@@ -97,7 +98,6 @@ class App extends React.Component {
       /* <Header pageWrapId={'page-wrap'} outerContainerId={'outer-container'} />
         <Navbar handleLogout={this.handleLogout} user={this.state.user} /> */
       <div className="App" id="outer-container">
-        
         <Switch>
           <NormalRoute exact path={PATHS.HOMEPAGE} component={HomePage} />
 
@@ -173,6 +173,13 @@ class App extends React.Component {
             item={this.state.item}
           />
 
+          <ProtectedRoute
+            exact
+            path={PATHS.DELETEITEMPAGE}
+            component={DeleteItemPage}
+            user={this.state.user}
+            item={this.state.item}
+          />
         </Switch>
       </div>
     );

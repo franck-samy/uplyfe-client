@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { addNewItem } from "../../services/items";
+import { Redirect } from "react-router-dom";
 
 class AddNewItemForm extends Component {
   state = {
@@ -29,9 +30,11 @@ class AddNewItemForm extends Component {
     };
     addNewItem(item).then((response) => {
       console.log("response", response);
+
       if (!response.status) {
         return;
       }
+      this.props.history.push("/");
     });
   };
 
@@ -41,6 +44,10 @@ class AddNewItemForm extends Component {
       [event.target.name]: event.target.value,
     });
   };
+
+  //   onRedirect = () => {
+  //     return <Redirect to="/profile" />;
+  //   };
 
   render() {
     return (

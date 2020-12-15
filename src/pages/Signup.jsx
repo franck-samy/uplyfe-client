@@ -30,7 +30,7 @@ export default class Signup extends Component {
       }
       localStorage.setItem("accessToken", res.data.accessToken);
       this.props.authenticate(res.data.user);
-      this.props.history.push("/profile");
+      this.props.history.push(`/profile/${this.state.username}`);
     });
   };
 

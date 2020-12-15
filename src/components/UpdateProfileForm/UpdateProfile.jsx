@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { getSingleUser, updateUser } from "../../services/users";
 
 export class UpdateProfile extends Component {
   state = {
@@ -7,14 +8,11 @@ export class UpdateProfile extends Component {
     // image: "",
   };
 
-  //   componentDidMount = () => {
-  //     getUser(this.props.match.params.id).then((user) => {
-  //       console.log("userInfo", user);
-  //       this.setState({
-  //         user,
-  //       });
-  //     });
-  //   };
+  componentDidMount() {
+    getSingleUser(this.props.match.params.id).then((user) => {
+      this.setState({ user });
+    });
+  }
 
   handleSubmit = (event) => {
     event.preventDefault();
@@ -23,6 +21,16 @@ export class UpdateProfile extends Component {
       password: this.state.password,
       //   image: this.state.image,
     };
+
+    updateUser(this.props.match.params.id, this.state.user).then((response) => {
+      console.log("response", response);
+      if (!response.status) {
+        return;
+      }
+      setTimeout(() => {
+        this.props.history.push(`/profile/${this.props.user._id}`);
+      }, 100);
+    });
   };
 
   handleChange = (event) => {
@@ -41,7 +49,7 @@ export class UpdateProfile extends Component {
           type="text"
           value={this.state.username}
           onChange={this.handleChange}
-          placeholder={this.state.username}
+          placeholder={this.props.user.username}
         />
         <label htmlFor="password">Change password</label>
         <input
@@ -49,7 +57,7 @@ export class UpdateProfile extends Component {
           type="password"
           value={this.state.password}
           onChange={this.handleChange}
-          placeholder="Enter password"
+          placeholder="Enter your new password"
         />
 
         <button type="submit">Update</button>

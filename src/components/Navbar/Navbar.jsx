@@ -6,7 +6,7 @@ import "./Navbar.css";
 const Navbar = (props) => {
   return (
     <nav className="navbar">
-      <Link to="/profile" className="navbar">
+      <Link to={`/profile/${props.user._id}`} className="navbar">
         <img
           className="navButtons"
           src="../../../images/user.png"
@@ -27,7 +27,7 @@ const Navbar = (props) => {
           alt="follower image"
         />
       </Link>
-      <Link to="/update-profile" className="navbar">
+      <Link to={`/update-profile/${props.user._id}`} className="navbar">
         <img
           className="navButtons"
           src="../../../images/user.png"

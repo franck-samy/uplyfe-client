@@ -12,7 +12,11 @@ class AddNewItemForm extends Component {
     description: '',
     // pending: "",
     // like: "",
+<<<<<<< HEAD
     url: '/profile',
+=======
+    // url: "/profile-picture",
+>>>>>>> Franck
   };
 
   handleSubmit = (event) => {
@@ -35,7 +39,11 @@ class AddNewItemForm extends Component {
         return;
       }
       setTimeout(() => {
+<<<<<<< HEAD
         this.props.history.push('/profile');
+=======
+        this.props.history.push("/profile/");
+>>>>>>> Franck
       }, 100);
     });
   };
@@ -48,7 +56,7 @@ class AddNewItemForm extends Component {
   };
 
   //   onRedirect = () => {
-  //     return <Redirect to="/profile" />;
+  //     return <Redirect to=`/profile/${id}` />;
   //   };
 
   render() {

@@ -2,11 +2,11 @@ import React from "react";
 import Navbar from "../components/Navbar/Navbar";
 import UpdateProfile from "../components/UpdateProfileForm/UpdateProfile";
 
-const UpdateProfilePage = () => {
+const UpdateProfilePage = (props) => {
   return (
     <div className="UpdateProfile">
-      <UpdateProfile />
-      <Navbar />
+      <UpdateProfile {...props} />
+      <Navbar {...props} />
     </div>
   );
 };

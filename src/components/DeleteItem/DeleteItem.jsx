@@ -31,7 +31,7 @@ class DeleteItem extends Component {
     deleteSingleItem(this.props.match.params.id, this.state.item).then(
       (response) => {
         setTimeout(() => {
-          this.props.history.push("/profile");
+          this.props.history.push(`/profile/${this.props.user._id}`);
         }, 100);
         if (!response.status) {
           return;

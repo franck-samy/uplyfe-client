@@ -15,7 +15,7 @@ function ProfilePage(props) {
 
         {/* <AllItems component={Item} title={props.title} /> */}
         <AllItems component={AllItems} item={props.item} />
-        <Navbar />
+        <Navbar {...props} />
       </header>
     </div>
   );

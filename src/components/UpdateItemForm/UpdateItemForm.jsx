@@ -34,7 +34,7 @@ class UpdateItemForm extends Component {
         return;
       }
       setTimeout(() => {
-        this.props.history.push("/profile");
+        this.props.history.push(`/profile/${this.props.user._id}`);
       }, 100);
     });
   };

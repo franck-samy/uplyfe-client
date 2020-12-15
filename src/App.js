@@ -21,6 +21,7 @@ import SingleItem from "./components/SingleItem/SingleItem";
 import UpdateItemPage from "./pages/UpdateItemPage";
 import UpdateItemForm from "./components/UpdateItemForm/UpdateItemForm";
 import DeleteItemPage from "./pages/DeleteItemPage";
+import AddComment from "./components/AddComment/AddComment";
 
 class App extends React.Component {
   state = {
@@ -179,6 +180,15 @@ class App extends React.Component {
             component={DeleteItemPage}
             user={this.state.user}
             item={this.state.item}
+          />
+
+          <ProtectedRoute
+            exact
+            path={PATHS.ADDCOMMENT}
+            component={AddComment}
+            user={this.state.user}
+            item={this.state.item}
+            comment={this.state.comment}
           />
         </Switch>
       </div>

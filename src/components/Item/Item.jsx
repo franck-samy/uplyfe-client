@@ -32,7 +32,7 @@ import { Link } from "react-router-dom";
 export class Item extends Component {
   addToMyList = () => {
     Axios.post(
-      "http://localhost:5005/api/clone-item",
+      `${process.env.REACT_APP_SERVER_URL}/clone-item`,
       {
         title: this.props.title,
         description: this.props.description,

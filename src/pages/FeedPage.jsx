@@ -1,12 +1,13 @@
-import AllComments from "../components/AllComments/AllComments";
 import Navbar from "../components/Navbar/Navbar";
+import AllItems from "../components/AllItems/AllItems";
 
 function FeedPage(props) {
   return (
     <div className="App">
       <header className="App-header">
         <h1>Feed Page</h1>
-        {/* <AllComments comments={props.commentDetails} item={props.itemDetails} /> */}
+        <AllItems component={AllItems} item={props.item} />
+
         <Navbar {...props} />
       </header>
     </div>

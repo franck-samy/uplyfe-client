@@ -7,11 +7,10 @@ const AllComments = (props) => {
     <div>
       {props.comments.map((el, i) => {
         return (
-          <ul>
+          <ul key={i}>
             <li>
               <SingleComment
                 {...el}
-                key={i}
                 item={props.item}
                 comments={props.comment}
               />

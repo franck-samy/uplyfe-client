@@ -26,6 +26,28 @@ export function addNewItem(item) {
     });
 }
 
+export function cloneNewItem(item) {
+  return itemService
+    .post("/clone-item", item, {
+      headers: {
+        Authorization: localStorage.getItem("accessToken"),
+      },
+    })
+    .then((response) => {
+      return {
+        status: true,
+        data: response.data,
+      };
+    })
+    .catch((err) => {
+      console.log(err.response);
+      return {
+        status: false,
+        errorMessage: err.response.data.errorMessage,
+      };
+    });
+}
+
 export function updateItem(id, item) {
   return itemService
     .put(`/item/${id}`, item, {
@@ -63,6 +85,13 @@ export function getSingleItem(id) {
         errorMessage: err.response.data.errorMessage,
       };
     });
+}
+
+export function getUserItem(userId) {
+  return itemService
+    .get(`/userItems/${userId}`)
+    .then((res) => res.data)
+    .catch((err) => console.log(err));
 }
 
 export function deleteSingleItem(id) {

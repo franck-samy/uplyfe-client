@@ -15,16 +15,19 @@ class AllItems extends React.Component {
   };
 
   render() {
+    console.log(this.state.items);
     return (
       <div>
         <ul>
           {this.state.items.map((item, index) => (
             <li key={index}>
+              <p className="catTag">{item.category}</p>
               <Link to={`/item/${item._id}`}>{item.title}</Link>
             </li>
           ))}
         </ul>
-        <Item component={Item} item={this.state.items} />
+
+        {/* <Item component={Item} item={this.state.items} /> */}
       </div>
     );
   }

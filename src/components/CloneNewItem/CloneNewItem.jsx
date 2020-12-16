@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { addNewItem } from "../../services/items";
+import { cloneNewItem } from "../../services/items";
 
-class AddNewItemForm extends Component {
+class CloneNewItemForm extends Component {
   state = {
     owner: this.props.user._id,
-    category: "",
+    category: this.props.category,
     title: "",
     // image: "",
     // public: "",
@@ -28,7 +28,7 @@ class AddNewItemForm extends Component {
       // pending: "",
       // like: "",
     };
-    addNewItem(item).then((response) => {
+    cloneNewItem(item).then((response) => {
       console.log("response", response);
 
       if (!response.status) {
@@ -47,11 +47,8 @@ class AddNewItemForm extends Component {
     });
   };
 
-  //   onRedirect = () => {
-  //     return <Redirect to=`/profile/${id}` />;
-  //   };
-
   render() {
+    console.log(this.props);
     return (
       <div className="AddNewItemForm">
         <form onSubmit={this.handleSubmit}>
@@ -108,4 +105,4 @@ class AddNewItemForm extends Component {
   }
 }
 
-export default AddNewItemForm;
+export default CloneNewItemForm;

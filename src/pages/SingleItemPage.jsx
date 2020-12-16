@@ -10,6 +10,7 @@ export class SingleItemPage extends React.Component {
   state = {
     itemDetails: null,
     commentDetails: null,
+    user: this.props.user,
   };
 
   componentDidMount = () => {
@@ -32,7 +33,7 @@ export class SingleItemPage extends React.Component {
     }
     return (
       <div>
-        <Item {...this.state.itemDetails} />
+        <Item {...this.state.itemDetails} {...this.state} {...this.props} />
 
         <AllComments
           comments={this.state.commentDetails}

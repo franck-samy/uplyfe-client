@@ -10,18 +10,23 @@ export class SingleItemPage extends React.Component {
   state = {
     itemDetails: null,
     commentDetails: null,
+    user: this.props.user,
   };
 
   componentDidMount = () => {
     axios
-      .get(`http://localhost:5005/api/item/${this.props.match.params.id}`)
+      .get(
+        `${process.env.REACT_APP_SERVER_URL}/item/${this.props.match.params.id}`
+      )
       .then((item) => {
-        axios.get('http://localhost:5005/api/all-comments').then((comment) => {
-          this.setState({
-            commentDetails: comment.data,
-            itemDetails: item.data,
+        axios
+          .get(`${process.env.REACT_APP_SERVER_URL}/all-comments`)
+          .then((comment) => {
+            this.setState({
+              commentDetails: comment.data,
+              itemDetails: item.data,
+            });
           });
-        });
       });
   };
 
@@ -32,7 +37,7 @@ export class SingleItemPage extends React.Component {
     }
     return (
       <div>
-        <Item {...this.state.itemDetails} />
+        <Item {...this.state.itemDetails} {...this.state} {...this.props} />
 
         <AllComments
           comments={this.state.commentDetails}

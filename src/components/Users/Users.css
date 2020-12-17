@@ -1,0 +1,13 @@
+.userClass {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.userList {
+  padding: 10px 10px;
+  margin-bottom: 20px;
+  background-color: rgba(92, 143, 147, 0.4);
+  width: 80vw;
+}

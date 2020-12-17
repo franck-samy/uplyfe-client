@@ -1,0 +1,35 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+.Profile {
+  background-color: white;
+  height: 100vh;
+}
+
+.Profile-header {
+  background-color: white;
+}
+
+.addItem-btn {
+  font-size: 11pt;
+  width: 120px;
+  margin: 0 auto;
+  background-color: #5c8f93;
+  color: #fff;
+  padding: 8px 15px;
+  cursor: pointer;
+  transition: all 0.4s;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.addItem-btn Link {
+  color: white;
+}
+
+hr {
+  margin: 30px 0;
+}

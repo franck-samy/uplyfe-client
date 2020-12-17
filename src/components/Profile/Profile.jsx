@@ -1,29 +1,48 @@
 import React, { Component } from "react";
 import AllItems from "../AllItems/AllItems";
+import "./Profile.css";
 
 class Profile extends React.Component {
   state = {
     username: this.props.user.username,
     inspirations: this.props.user.inspirations,
     inspired: this.props.user.inspired,
+    profilePic: this.props.user.image,
   };
 
   render() {
     return (
       <div className="profile">
-        <img
-          style={{ width: 70, borderRadius: 50 }}
-          src="../../images/defaut-pic.jpg"
-          alt="pic"
-        />
-        <h3 className="username">{this.state.username}</h3>
-        <h5>inspirations: </h5>
-        <h5>inspired</h5>
-        <p className="bio" style={{ fontSize: 10 }}>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Neque libero
-          natus a reiciendis aliquam accusantium vero consectetur ipsam,
-          quibusdam nostrum eos ratione iste perspiciatis tenetur!
-        </p>
+        {/* Nez lqyout*/}
+
+        <div className="container">
+          <header>
+            <i className="fa fa-bars" aria-hidden="true"></i>
+          </header>
+          <main>
+            <div className="row">
+              <div className="left col-lg-4">
+                <div className="photo-left">
+                  <img
+                    className="photo"
+                    src={this.state.profilePic}
+                    alt="pic"
+                  />
+                  <div className="active"></div>
+                </div>
+                <h4 className="name">{this.state.username}</h4>
+              </div>
+              <div className="right col-lg-8">
+                <ul className="nav">
+                  <li>Gallery</li>
+                  <li>Collections</li>
+                  <li>Groups</li>
+                  <li>About</li>
+                </ul>
+              </div>
+            </div>
+          </main>
+        </div>
       </div>
     );
   }

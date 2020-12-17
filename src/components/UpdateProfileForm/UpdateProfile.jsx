@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { getSingleUser, updateUser } from "../../services/users";
+import FileUpload from "../FileUpload/FileUpload";
+import "./UpdateProfile.css";
 
 export class UpdateProfile extends Component {
   state = {
@@ -42,26 +44,32 @@ export class UpdateProfile extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label htmlFor="username">Change username</label>
-        <input
-          name="username"
-          type="text"
-          value={this.state.username}
-          onChange={this.handleChange}
-          placeholder={this.props.user.username}
-        />
-        <label htmlFor="password">Change password</label>
-        <input
-          name="password"
-          type="password"
-          value={this.state.password}
-          onChange={this.handleChange}
-          placeholder="Enter your new password"
-        />
+      <div className="updateProfileForm">
+        <h1>Update your profile</h1>
 
-        <button type="submit">Update</button>
-      </form>
+        <form onSubmit={this.handleSubmit}>
+          <label htmlFor="username">Change username</label>
+          <input
+            name="username"
+            type="text"
+            value={this.state.username}
+            onChange={this.handleChange}
+            placeholder={this.props.user.username}
+          />
+          <label htmlFor="password">Change password</label>
+          <input
+            name="password"
+            type="password"
+            value={this.state.password}
+            onChange={this.handleChange}
+            placeholder="Enter your new password"
+          />
+          <br />
+          <button type="submit">Update</button>
+          <br />
+        </form>
+        <FileUpload {...this.state} />
+      </div>
     );
   }
 }

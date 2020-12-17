@@ -22,11 +22,15 @@ import UpdateItemPage from "./pages/UpdateItemPage";
 import UpdateItemForm from "./components/UpdateItemForm/UpdateItemForm";
 import DeleteItemPage from "./pages/DeleteItemPage";
 import AddComment from "./components/AddComment/AddComment";
+import CloneNewItemPage from "./components/CloneNewItem/CloneNewItem";
+import SingleUserPage from "./pages/SingleUserPage";
+import FileUpload from "./components/FileUpload/FileUpload";
 
 class App extends React.Component {
   state = {
     user: null,
-    item: [],
+    item: null,
+    comments: null,
     isLoading: true,
   };
 
@@ -45,6 +49,7 @@ class App extends React.Component {
           isLoading: false,
         });
       }
+
       this.setState({
         user: res.data.user,
         item: res.data.item,
@@ -139,8 +144,24 @@ class App extends React.Component {
 
           <ProtectedRoute
             exact
+            path="/imageUpload"
+            component={FileUpload}
+            user={this.state.user}
+            item={this.state.item}
+          />
+
+          <ProtectedRoute
+            exact
             path={PATHS.SINGLEITEMPAGE}
             component={SingleItemPage}
+            user={this.state.user}
+            item={this.state.item}
+          />
+
+          <ProtectedRoute
+            exact
+            path={PATHS.SINGLEUSERPAGE}
+            component={SingleUserPage}
             user={this.state.user}
             item={this.state.item}
           />
@@ -150,6 +171,7 @@ class App extends React.Component {
             path={PATHS.FEEDPAGE}
             component={FeedPage}
             user={this.state.user}
+            item={this.state.item}
           />
 
           <ProtectedRoute
@@ -163,6 +185,13 @@ class App extends React.Component {
             exact
             path={PATHS.ADDNEWITEMPAGE}
             component={AddNewItemPage}
+            user={this.state.user}
+          />
+
+          <ProtectedRoute
+            exact
+            path={PATHS.CLONENEWITEMPAGE}
+            component={CloneNewItemPage}
             user={this.state.user}
           />
 

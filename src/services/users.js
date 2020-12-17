@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const userService = axios.create({
-  baseURL: "http://localhost:5005/api",
+  baseURL: `${process.env.REACT_APP_SERVER_URL}`,
 });
 
 export function updateUser(id, user) {
@@ -32,7 +32,7 @@ export function getAllUsers() {
 
 export function getSingleUser(id) {
   return userService
-    .get(`/profile/${id}`)
+    .get(`/user/${id}`)
     .then((res) => res.data)
     .catch((err) => {
       console.log(err.response);
@@ -41,4 +41,17 @@ export function getSingleUser(id) {
         errorMessage: err.response.data.errorMessage,
       };
     });
+}
+
+export function sendProfilePic(file, userID) {
+  const formBody = new window.FormData();
+  formBody.append("profilePic", file);
+  const id = userID;
+
+  return userService
+    .post(`/auth/uploadFile/${id}`, formBody)
+    .then((response) => {
+      return response.data;
+    })
+    .catch((err) => console.log(err));
 }

@@ -35,6 +35,7 @@ export class FollowersPage extends Component {
       <div className="Follower">
         <header className="Follower-header">
           <h1 style={{ color: "white" }}>Contributors</h1>
+          <br />
           {this.state.users.map((el, i) => (
             <Users user={this.state.users} key={el._id} {...el} />
           ))}

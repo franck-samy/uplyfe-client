@@ -32,14 +32,6 @@ class Profile extends React.Component {
                 </div>
                 <h4 className="name">{this.state.username}</h4>
               </div>
-              <div className="right col-lg-8">
-                <ul className="nav">
-                  <li>Gallery</li>
-                  <li>Collections</li>
-                  <li>Groups</li>
-                  <li>About</li>
-                </ul>
-              </div>
             </div>
           </main>
         </div>

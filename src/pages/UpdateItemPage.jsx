@@ -5,7 +5,7 @@ import Navbar from "../components/Navbar/Navbar";
 const UpdateItemPage = (props) => {
   return (
     <div>
-      <p>Hello</p>
+      <h1>Edit my item</h1>
       <UpdateItemForm {...props} />
       <Navbar {...props} />
     </div>

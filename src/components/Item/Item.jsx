@@ -28,6 +28,7 @@
 import Axios from "axios";
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import "./Item.css";
 
 export class Item extends Component {
   addToMyList = () => {
@@ -50,18 +51,32 @@ export class Item extends Component {
 
   render() {
     return (
-      <div>
+      <div className="inspirationClass">
+        <h1>My Inspiration</h1>
+
         <div className="Item">
           <h3>Title: {this.props.title}</h3>
           <br />
-          <br />
-          <br />
           <h3>Description: {this.props.description}</h3>
+          <br />
+          <br />
 
           {this.props.user._id === this.props.owner ? (
             <div>
-              <Link to={`/update-item/${this.props._id}`}>Edit my item</Link>
-              <Link to={`/delete-item/${this.props._id}`}>Remove my item</Link>
+              <Link
+                className="button"
+                style={{ textDecoration: "none", color: "black" }}
+                to={`/update-item/${this.props._id}`}
+              >
+                Edit
+              </Link>
+              <Link
+                style={{ textDecoration: "none", color: "black" }}
+                className="button"
+                to={`/delete-item/${this.props._id}`}
+              >
+                Remove
+              </Link>
             </div>
           ) : (
             <button onClick={this.addToMyList}>Add to my list</button>

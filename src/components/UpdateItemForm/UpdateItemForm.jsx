@@ -50,12 +50,11 @@ class UpdateItemForm extends Component {
     console.log(this.state.item);
     return (
       <div className="UpdateNewItemForm">
-        <p>Update Item Page HELLO</p>
-
         <form onSubmit={this.handleSubmit}>
           <label name="title" htmlFor="title">
             Title
           </label>
+          <br />
           <input
             name="title"
             type="text"
@@ -80,6 +79,7 @@ class UpdateItemForm extends Component {
             value={this.state.item.description}
             onChange={this.handleChange}
           />
+          <br />
           <button type="submit">Edit item</button>
         </form>
       </div>

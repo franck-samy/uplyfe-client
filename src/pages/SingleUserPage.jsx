@@ -6,6 +6,7 @@ import UserItems from "../components/UserItem/UserItem";
 import Navbar from "../components/Navbar/Navbar";
 import axios from "axios";
 import { getSingleUser } from "../services/users";
+import "./SingleUserPage.css";
 
 export class SingleUserPage extends Component {
   state = {
@@ -47,15 +48,14 @@ export class SingleUserPage extends Component {
   render() {
     console.log("USER PROFILE", this.state.userProfile);
     return (
-      <div className="App">
-        <header className="App-header">
-          <p>SINGLE PROFIULE PAGE</p>
+      <div className="singleUser">
+        <header className="SingleUser-header">
           <UserProfile
             user={this.state.userProfile}
             items={this.state.items}
             {...this.state}
           />
-          <div>
+          {/* <div>
             {this.state.items.map((el) => {
               return (
                 <div>
@@ -64,9 +64,8 @@ export class SingleUserPage extends Component {
                 </div>
               );
             })}
-          </div>
+          </div> */}
 
-          <hr />
           <UserItems user={this.state.user} items={this.state.items} />
           <Navbar {...this.props} />
         </header>

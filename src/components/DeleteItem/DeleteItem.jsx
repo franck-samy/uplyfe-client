@@ -52,7 +52,7 @@ class DeleteItem extends Component {
     return (
       <div className="deleteItem">
         <p>Are you sure you want to delete this item?</p>
-
+        <br />
         <form onSubmit={this.handleSubmit}>
           <button type="submit">Remove item</button>
         </form>

@@ -5,6 +5,7 @@ import Navbar from "../components/Navbar/Navbar";
 import { addNewComment } from "../services/comments";
 import AddComment from "../components/AddComment/AddComment";
 import AllComments from "../components/AllComments/AllComments";
+import "./SingleItemPage.css";
 
 export class SingleItemPage extends React.Component {
   state = {
@@ -36,7 +37,7 @@ export class SingleItemPage extends React.Component {
       return <div>Loading...</div>;
     }
     return (
-      <div>
+      <div className="singleItemWindow">
         <Item {...this.state.itemDetails} {...this.state} {...this.props} />
 
         <AllComments

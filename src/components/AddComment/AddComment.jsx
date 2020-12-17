@@ -33,6 +33,7 @@ export class AddComment extends Component {
     return (
       <div className="AddNewCommentForm">
         <form onSubmit={this.handleSubmit}>
+          <br />
           <label htmlFor="comment">Your comment:</label>
           <textarea
             id="comment"
@@ -42,7 +43,7 @@ export class AddComment extends Component {
             value={this.state.title}
             onChange={this.handleChange}
           />
-
+          <br />
           <button type="submit">Comment</button>
         </form>
       </div>

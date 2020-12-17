@@ -6,13 +6,15 @@ const Users = (props) => {
   console.log("props:", props);
   return (
     <div className="userClass">
-      <div className="userList">
-        <Link
-          style={{ color: "white", textDecoration: "none" }}
-          to={`/user/${props._id}`}
-        >
-          <p>{props.username}</p>
-        </Link>
+      <div>
+        <div className="userList">
+          <Link
+            style={{ color: "white", textDecoration: "none" }}
+            to={`/user/${props._id}`}
+          >
+            <p>{props.username}</p>
+          </Link>
+        </div>
       </div>
     </div>
   );

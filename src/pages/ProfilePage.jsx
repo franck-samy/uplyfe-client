@@ -51,17 +51,7 @@ export class ProfilePage extends Component {
             items={this.state.items}
             {...this.props}
           />
-          {/* <Link to="/imageUpload">Upload image</Link> */}
-          {/* <div>
-            {this.state.items.map((el) => {
-              return (
-                <div>
-                  <p>title: {el.title}</p>
-                  <p>description: {el.description}</p>
-                </div>
-              );
-            })}
-          </div> */}
+
           <div className="addItem-btn">
             <Link
               style={{ textDecoration: "none", color: "white" }}
@@ -71,7 +61,9 @@ export class ProfilePage extends Component {
             </Link>
           </div>
           <hr />
-          <UserItems user={this.state.user} items={this.state.items} />
+          <div className="userItemWindow">
+            <UserItems user={this.state.user} items={this.state.items} />
+          </div>
           <Navbar {...this.props} />
         </header>
       </div>

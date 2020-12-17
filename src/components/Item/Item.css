@@ -1,0 +1,16 @@
+.inspirationClass {
+}
+
+.Item {
+  border: 1px solid white;
+  padding: 20px;
+  width: 80vw;
+  margin: 0 auto;
+}
+
+.button {
+  margin: 20px;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: white;
+}

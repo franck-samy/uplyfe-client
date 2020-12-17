@@ -54,10 +54,12 @@ class AddNewItemForm extends Component {
   render() {
     return (
       <div className="AddNewItemForm">
+        <h1>Add a new item</h1>
         <form onSubmit={this.handleSubmit}>
           <label name="title" htmlFor="title">
             Title
           </label>
+          <br />
           <input
             name="title"
             type="text"
@@ -76,6 +78,8 @@ class AddNewItemForm extends Component {
             onChange={this.handleChange}
           >
             <option value="">--Please choose an option--</option>
+            <br />
+            <br />
             <option value="food">Food</option>
             <option value="travel">Travel</option>
             <option value="self-improvement">Self-improvement</option>
@@ -86,12 +90,9 @@ class AddNewItemForm extends Component {
             <option value="entertainment">Entertainment</option>
             <option value="adventure">Adventure</option>
           </select>
-          {/* <input
-            name="category"
-            type="text"
-            value={this.state.category}
-            onChange={this.handleChange}
-          /> */}
+
+          <br />
+          <br />
           <label name="description" htmlFor="description">
             Description
           </label>

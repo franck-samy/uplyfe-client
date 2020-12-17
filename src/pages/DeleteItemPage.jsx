@@ -5,7 +5,7 @@ import Navbar from "../components/Navbar/Navbar";
 const DeleteItemPage = (props) => {
   return (
     <div>
-      <p>Delete Item</p>
+      <h1>Remove this inspiration?</h1>
       <DeleteItem {...props} />
       <Navbar {...props} />
     </div>

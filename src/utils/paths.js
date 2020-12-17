@@ -13,3 +13,4 @@ export const UPDATEITEMPAGE = "/update-item/:id";
 export const DELETEITEMPAGE = "/delete-item/:id";
 export const ADDCOMMENT = "/new-comment";
 export const CLONENEWITEMPAGE = "/clone-item/:id";
+export const SINGLEUSERPAGE = "/user/:id";

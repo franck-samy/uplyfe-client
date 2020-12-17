@@ -15,14 +15,18 @@ export class SingleItemPage extends React.Component {
 
   componentDidMount = () => {
     axios
-      .get(`http://localhost:5005/api/item/${this.props.match.params.id}`)
+      .get(
+        `${process.env.REACT_APP_SERVER_URL}/item/${this.props.match.params.id}`
+      )
       .then((item) => {
-        axios.get("http://localhost:5005/api/all-comments").then((comment) => {
-          this.setState({
-            commentDetails: comment.data,
-            itemDetails: item.data,
+        axios
+          .get(`${process.env.REACT_APP_SERVER_URL}/all-comments`)
+          .then((comment) => {
+            this.setState({
+              commentDetails: comment.data,
+              itemDetails: item.data,
+            });
           });
-        });
       });
   };
 

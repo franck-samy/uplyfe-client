@@ -32,7 +32,7 @@ export function getAllUsers() {
 
 export function getSingleUser(id) {
   return userService
-    .get(`/profile/${id}`)
+    .get(`/user/${id}`)
     .then((res) => res.data)
     .catch((err) => {
       console.log(err.response);

@@ -42,3 +42,16 @@ export function getSingleUser(id) {
       };
     });
 }
+
+export function sendProfilePic(file, userID) {
+  const formBody = new window.FormData();
+  formBody.append("profilePic", file);
+  const id = userID;
+
+  return userService
+    .post(`/auth/uploadFile/${id}`, formBody)
+    .then((response) => {
+      return response.data;
+    })
+    .catch((err) => console.log(err));
+}

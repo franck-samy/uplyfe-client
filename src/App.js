@@ -24,6 +24,7 @@ import DeleteItemPage from "./pages/DeleteItemPage";
 import AddComment from "./components/AddComment/AddComment";
 import CloneNewItemPage from "./components/CloneNewItem/CloneNewItem";
 import SingleUserPage from "./pages/SingleUserPage";
+import FileUpload from "./components/FileUpload/FileUpload";
 
 class App extends React.Component {
   state = {
@@ -137,6 +138,14 @@ class App extends React.Component {
             exact
             path={PATHS.PROFILEPAGE}
             component={ProfilePage}
+            user={this.state.user}
+            item={this.state.item}
+          />
+
+          <ProtectedRoute
+            exact
+            path="/imageUpload"
+            component={FileUpload}
             user={this.state.user}
             item={this.state.item}
           />

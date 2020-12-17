@@ -17,6 +17,7 @@ import React, { Component } from "react";
 import Navbar from "../components/Navbar/Navbar";
 import { getAllUsers } from "../services/users";
 import Users from "../components/Users/Users";
+import "./FollowersPage.css";
 
 export class FollowersPage extends Component {
   state = {
@@ -31,9 +32,9 @@ export class FollowersPage extends Component {
 
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <h1>Followers Page</h1>
+      <div className="Follower">
+        <header className="Follower-header">
+          <h1 style={{ color: "white" }}>Contributors</h1>
           {this.state.users.map((el, i) => (
             <Users user={this.state.users} key={el._id} {...el} />
           ))}

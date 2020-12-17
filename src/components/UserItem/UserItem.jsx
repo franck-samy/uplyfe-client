@@ -38,15 +38,25 @@
 
 import React from "react";
 import { Link } from "react-router-dom";
+import "./UserItems.css";
 
 const UserItem = (props) => {
   return (
     <div className="userItem">
       {props.items.map((el, index) => {
         return (
-          <div key={index}>
+          <div className="item-list" key={index}>
             <p className="catTag">{el.category}</p>
-            <Link to={`/item/${props.items[index]._id}`}>{el.title}</Link>
+            <Link
+              style={{
+                textDecoration: "none",
+                color: "#FFF",
+                fontSize: "24px",
+              }}
+              to={`/item/${props.items[index]._id}`}
+            >
+              {el.title}
+            </Link>
             <p>{el.description}</p>
           </div>
         );

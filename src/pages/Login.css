@@ -1,0 +1,88 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #5c8f93; /* fallback for old browsers */
+  overflow-x: hidden;
+  height: 100%;
+  /* code to make all text unselectable */
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+/* Disables selector ring */
+body:not(.user-is-tabbing) button:focus,
+body:not(.user-is-tabbing) input:focus,
+body:not(.user-is-tabbing) select:focus,
+body:not(.user-is-tabbing) textarea:focus {
+  outline: none;
+}
+/* ########################################################## */
+h1 {
+  color: white;
+  font-size: 35px;
+  font-weight: 800;
+  margin: 100px;
+}
+.flex-container {
+  width: 100vw;
+  margin-top: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.content-container {
+  width: 500px;
+  height: 350px;
+}
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+  height: 350px;
+  margin-top: 5px;
+  padding-top: 20px;
+  border-radius: 12px;
+  background: #5c8f93;
+}
+.subtitle {
+  font-size: 11px;
+  color: white;
+}
+
+label {
+  color: white;
+  font-size: 20px;
+}
+
+input {
+  border: none;
+  border-bottom: solid 1px white;
+  margin-bottom: 30px;
+  background: none;
+  color: white;
+  height: 35px;
+  width: 300px;
+}
+
+.submit-btn {
+  font-size: 24px;
+  padding: 10px 30px;
+  background-color: white;
+  color: #5c8f93;
+  border: none;
+  border-radius: 10px;
+}
+
+.submit-btn:hover {
+  color: rgb(255, 255, 255);
+  box-shadow: none;
+}

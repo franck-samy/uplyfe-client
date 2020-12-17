@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import UserItems from "../components/UserItem/UserItem";
 import { getUserItem } from "../services/items";
 import Item from "../components/Item/Item";
+import "./ProfilePage.css";
 
 // function ProfilePage(props) {
 //   return (
@@ -43,13 +44,14 @@ export class ProfilePage extends Component {
   render() {
     console.log(this.state.items);
     return (
-      <div className="App">
-        <header className="App-header">
+      <div className="Profile">
+        <header className="Profile-header">
           <Profile
             component={Profile}
             items={this.state.items}
             {...this.props}
           />
+          {/* <Link to="/imageUpload">Upload image</Link> */}
           {/* <div>
             {this.state.items.map((el) => {
               return (
@@ -60,7 +62,14 @@ export class ProfilePage extends Component {
               );
             })}
           </div> */}
-          <Link to="/add-new-item">Add Item</Link>
+          <div className="addItem-btn">
+            <Link
+              style={{ textDecoration: "none", color: "white" }}
+              to="/add-new-item"
+            >
+              Add Item
+            </Link>
+          </div>
           <hr />
           <UserItems user={this.state.user} items={this.state.items} />
           <Navbar {...this.props} />

@@ -1,16 +1,17 @@
 import "../App.css";
+import { Link } from "react-router-dom";
 
 function HomePage() {
   return (
     <div className="App">
       <header className="App-header">
         <img className="logo" src="../../images/UpLyfe logo.png" alt="" />
-        <a className="button-home" href="/auth/signup">
+        <Link className="button-home" to="/auth/signup">
           Get started!
-        </a>
-        <a className="button-home" href="/auth/login">
+        </Link>
+        <Link className="button-home" to="/auth/login">
           Log In
-        </a>
+        </Link>
       </header>
     </div>
   );

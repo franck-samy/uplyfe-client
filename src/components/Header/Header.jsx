@@ -7,12 +7,12 @@ const Header = (props) => {
   return (
     <div className="Header">
       <Menu>
-        <a id="home" className="menu-item" href="/update-profile">
+        <Link id="home" className="menu-item" to="/update-profile">
           Update
-        </a>
-        <a id="about" className="menu-item" href="/sign-out">
+        </Link>
+        <Link id="about" className="menu-item" to="/sign-out">
           Sign Out
-        </a>
+        </Link>
       </Menu>
     </div>
   );
